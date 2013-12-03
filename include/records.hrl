@@ -1,0 +1,1 @@
+-record(quicktable, {?ELEMENT_BASE(element_quicktable), data=[], html_encode=true, mode=text}).
