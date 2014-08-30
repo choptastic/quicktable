@@ -1,6 +1,10 @@
 -module (element_quicktable).
 -include_lib("nitrogen_core/include/wf.hrl").
 -include("records.hrl").
+-export([
+	reflect/0,
+	render_element/1
+]).
 
 reflect() -> record_info(fields, quicktable).
 
@@ -32,6 +36,6 @@ render_element(Rec = #quicktable{}) ->
 					body -> #tablecell{body=Cell};
 					text -> #tablecell{text=Cell,html_encode=Rec#quicktable.html_encode}
 				end
-			end,Row)}
+			end,Cells)}
 		end,Rec#quicktable.data)
 	}.
