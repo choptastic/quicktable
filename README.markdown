@@ -26,7 +26,7 @@ Run the following at the command line:
 Then add the following includes into any module requiring the form
 
 ```erlang
-	-include_lib("sigma_form/include/records.hrl").
+	-include_lib("quicktable/include/records.hrl").
 ```
 
 ## Usage
@@ -37,10 +37,24 @@ Then add the following includes into any module requiring the form
 		data=[
 			["R1C1", "R1C2", "R1C3"],
 			["R2C1", "R2C2", "R2C3"],
-			["R3C1", "R3C2", "R3C3"],
+			["R3C1", "R3C2", "R3C3"]
 		]
 	}.
 ```
+or - enabling interpretation of first row as header:
+
+```erlang
+	#quicktable{
+		html_encode=true,
+		has_header=true,
+		data=[
+			{"tupleR1C1", "tupleR1C2", "tupleR1C3"},
+			{"tupleR2C1", "tupleR2C2", "tupleR2C3"},
+			{"tupleR3C1", "tupleR3C2", "tupleR3C3"}
+		]
+	}.
+```
+
 
 The `data` attribute is a list of rows, with the each row merely being a list
 of cells, and the cell contents being encoded either with the specified
