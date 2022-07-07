@@ -27,8 +27,9 @@ reflect() -> record_info(fields, quicktable).
 render_element(Rec = #quicktable{}) ->
     Mode = Rec#quicktable.mode,
     HtmlEncode = Rec#quicktable.html_encode,
-    FirstRowIsHeader = Rec#quicktable.has_header,
+    FirstRowIsHeader = Rec#quicktable.first_row_is_header,
     Data = Rec#quicktable.data,
+    Class = Rec#quicktable.class,
 
     case FirstRowIsHeader of
         true ->
@@ -37,13 +38,13 @@ render_element(Rec = #quicktable{}) ->
             RElems = [render_row(Row, Mode, HtmlEncode, row) || Row <- Rows],
             #table{
                 header = [HElem],
-                class = Rec#quicktable.class,
+                class = Class,
                 rows = RElems
             };
         false ->
             AllRElems = [render_row(Row, Mode, HtmlEncode, row) || Row <- Data],
             #table{
-                class = Rec#quicktable.class,
+                class = Class,
                 rows = AllRElems
             }
     end.

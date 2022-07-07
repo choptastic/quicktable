@@ -1,1 +1,1 @@
--record(quicktable, {?ELEMENT_BASE(element_quicktable), data=[], has_header=true, html_encode=true, mode=text}).
+-record(quicktable, {?ELEMENT_BASE(element_quicktable), data=[], first_row_is_header=false, html_encode=true, mode=text}).
