@@ -46,9 +46,9 @@ or - enabling interpretation of first row as header:
 ```erlang
 	#quicktable{
 		html_encode=true,
-		has_header=true,
+		first_row_is_header=true,
 		data=[
-			{"tupleR1C1", "tupleR1C2", "tupleR1C3"},
+			{"HeaderC1", "HeaderC2", "HeaderC3"},
 			{"tupleR2C1", "tupleR2C2", "tupleR2C3"},
 			{"tupleR3C1", "tupleR3C2", "tupleR3C3"}
 		]
